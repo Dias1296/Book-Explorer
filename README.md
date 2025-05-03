@@ -12,7 +12,11 @@ That includes:
 The main technologies used to accomplish this will be .NET for the backend, React for the frontend and SQL Server for the database.
 
 Feature incrementation (commit) log:
-1. Built the initial web scraper that scrapes info from each book in the https://books.toscrape.com/ website. 
+1. 	Built the initial web scraper that scrapes info from each book in the https://books.toscrape.com/ website. 
 That includes info such as title, price, category...
+2. 	Fixed a problem with book titles being scraped with HTML encoding.
+	Added some robustness to the HTML requests.
+	Added some console logs.
+	Added systems to save failed books URLs in a text file.
 	
 

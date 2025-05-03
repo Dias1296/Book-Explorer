@@ -3,9 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\fabio\\Desktop\\Software\\Projects\\Book-Explorer\\BookScraper\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/BookScraperDb/True/SqlTable/dbo.Books.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{8EFB4293-377F-43D9-AFDE-DF60FE85A7AA}|BookScraper.csproj|c:\\users\\fabio\\desktop\\software\\projects\\book-explorer\\bookscraper\\bookscraper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8EFB4293-377F-43D9-AFDE-DF60FE85A7AA}|BookScraper.csproj|solutionrelative:bookscraper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -18,12 +15,12 @@
       "RelativeMoniker": "D:0:0:{8EFB4293-377F-43D9-AFDE-DF60FE85A7AA}|BookScraper.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8EFB4293-377F-43D9-AFDE-DF60FE85A7AA}|BookScraper.csproj|c:\\users\\fabio\\desktop\\software\\projects\\book-explorer\\bookscraper\\databasecontext\\bookcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8EFB4293-377F-43D9-AFDE-DF60FE85A7AA}|BookScraper.csproj|solutionrelative:databasecontext\\bookcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8EFB4293-377F-43D9-AFDE-DF60FE85A7AA}|BookScraper.csproj|c:\\users\\fabio\\desktop\\software\\projects\\book-explorer\\bookscraper\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EFB4293-377F-43D9-AFDE-DF60FE85A7AA}|BookScraper.csproj|solutionrelative:models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\fabio\\Desktop\\Software\\Projects\\Book-Explorer\\BookScraper\\Models\\Category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\Category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8EFB4293-377F-43D9-AFDE-DF60FE85A7AA}|BookScraper.csproj|c:\\users\\fabio\\desktop\\software\\projects\\book-explorer\\bookscraper\\databasecontext\\bookcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8EFB4293-377F-43D9-AFDE-DF60FE85A7AA}|BookScraper.csproj|solutionrelative:databasecontext\\bookcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,29 +39,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "dbo.Books [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/BookScraperDb/True/SqlTable/dbo.Books.sql",
-              "ToolTip": "dbo.Books [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-05-02T19:03:52.538Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "BookScraper.cs",
               "DocumentMoniker": "C:\\Users\\fabio\\Desktop\\Software\\Projects\\Book-Explorer\\BookScraper\\BookScraper.cs",
               "RelativeDocumentMoniker": "BookScraper.cs",
               "ToolTip": "C:\\Users\\fabio\\Desktop\\Software\\Projects\\Book-Explorer\\BookScraper\\BookScraper.cs",
               "RelativeToolTip": "BookScraper.cs",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAkwFgAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAIA5wJkAAABUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-01T17:52:53.528Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "Category.cs",
               "DocumentMoniker": "C:\\Users\\fabio\\Desktop\\Software\\Projects\\Book-Explorer\\BookScraper\\Models\\Category.cs",
               "RelativeDocumentMoniker": "Models\\Category.cs",
@@ -72,7 +59,8 @@
               "RelativeToolTip": "Models\\Category.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-02T13:28:12.51Z"
+              "WhenOpened": "2025-05-02T13:28:12.51Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -84,31 +72,34 @@
               "RelativeToolTip": "DatabaseContext\\BookContext.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAAwBYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-01T17:51:15.613Z"
+              "WhenOpened": "2025-05-01T17:51:15.613Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Book.cs",
               "DocumentMoniker": "C:\\Users\\fabio\\Desktop\\Software\\Projects\\Book-Explorer\\BookScraper\\Models\\Book.cs",
               "RelativeDocumentMoniker": "Models\\Book.cs",
               "ToolTip": "C:\\Users\\fabio\\Desktop\\Software\\Projects\\Book-Explorer\\BookScraper\\Models\\Book.cs",
               "RelativeToolTip": "Models\\Book.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAA6wBQAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAiwBQAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-01T17:33:40.317Z"
+              "WhenOpened": "2025-05-01T17:33:40.317Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\fabio\\Desktop\\Software\\Projects\\Book-Explorer\\BookScraper\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\fabio\\Desktop\\Software\\Projects\\Book-Explorer\\BookScraper\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAIwCMAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-01T17:29:52.678Z"
+              "WhenOpened": "2025-05-01T17:29:52.678Z",
+              "EditorCaption": ""
             }
           ]
         }

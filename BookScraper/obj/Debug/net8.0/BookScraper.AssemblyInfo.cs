@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BookScraper")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6966fd1782e9f05cd1788ab3d436dd1ef3c3e359")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+72c12d1992aeff891c02ed33e993b68d19034ade")]
 [assembly: System.Reflection.AssemblyProductAttribute("BookScraper")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BookScraper")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

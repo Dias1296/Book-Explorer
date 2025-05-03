@@ -10,6 +10,7 @@ using HtmlAgilityPack;
 using BookScraper.Models;
 using BookScraper.DatabaseContext;
 using Microsoft.EntityFrameworkCore;
+using System.Net;
 
 namespace BookScraper
 {
@@ -21,6 +22,7 @@ namespace BookScraper
         public async Task<List<Book>> ScrapeBooksAsync(BookContext context)
         {
             List<Book> books = new List<Book>();
+            List<string> failedBooks = new List<string>();
             HttpClient httpClient = new HttpClient();
 
             for (int page = 1; page <= 50; page++)
@@ -30,8 +32,18 @@ namespace BookScraper
 
                 Console.WriteLine($"Scraping {pageUrl}");
 
-                //Load the website HTML using HttpClient
-                var html = await httpClient.GetStringAsync(pageUrl);
+                //Try to load the website HTML using HttpClient
+                string? html;
+                try
+                {
+                    html = await httpClient.GetStringAsync(pageUrl);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Failed to fetch page {page}: {ex.Message}");
+                    continue;
+                }
+                
 
                 //Load HTML into HtmlAgilityPack parser
                 var htmlDoc = new HtmlDocument();
@@ -45,6 +57,7 @@ namespace BookScraper
                 {
                     //Extract the title
                     var title = node.SelectSingleNode(".//h3/a").GetAttributeValue("title", "N/A");
+                    title = WebUtility.HtmlDecode(title);
 
                     //Extract the price
                     var price = node.SelectSingleNode(".//p[@class='price_color']")?.InnerText.Trim() ?? "N/A";
@@ -72,10 +85,21 @@ namespace BookScraper
                     }
 
                     //Get breadcrumb that associates book to category
-                    var detailHtml = await httpClient.GetStringAsync(absoluteUrl);
-                    var detailDoc = new HtmlDocument();
-                    detailDoc.LoadHtml(detailHtml);
-
+                    string? detailHtml;
+                    HtmlDocument? detailDoc = new HtmlDocument();
+                    try
+                    {
+                        detailHtml = await httpClient.GetStringAsync(absoluteUrl);
+                        detailDoc = new HtmlDocument();
+                        detailDoc.LoadHtml(detailHtml);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error scraping book at {absoluteUrl}: {ex.Message}");
+                        failedBooks.Add(absoluteUrl);
+                        continue;
+                    }
+                    
                     var breadcrumbNodes = detailDoc.DocumentNode.SelectNodes("//ul[@class='breadcrumb']/li");
                     var categoryName = breadcrumbNodes[2].InnerText.Trim();
 
@@ -107,21 +131,44 @@ namespace BookScraper
                         CategoryId = category.Id,
                     });
 
-                    //Console.WriteLine($"Added book: {title}");
+                    Console.WriteLine($"Inserted book '{title}' into database.");
                 }
 
+            }
+
+            //Add failed books to file
+            if (failedBooks.Any())
+            {
+                string filePath = "failed_books.txt";
+                File.WriteAllLines(filePath, failedBooks);
+                Console.WriteLine($"Saved {failedBooks.Count} failed book URLs to {filePath}");
+            }
+            else
+            {
+                Console.WriteLine("No failed books to log.");
             }
 
             return books;
         }
 
-        public async Task<List<(string Name, string Url)>> ScrapeCategoriesAsync()
+        public async Task<List<Category>> ScrapeCategoriesAsync(BookContext context)
         {
+            var categoryList = new List<Category>();
             var categories = new List<(string, string)>();
             var baseUrl = "https://books.toscrape.com/";
 
             var httpClient = new HttpClient();
-            var response = await httpClient.GetStringAsync(baseUrl);
+            string? response; 
+            try
+            {
+                response = await httpClient.GetStringAsync(baseUrl);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Failed to fetch category page: {ex.Message}");
+                //Return an empty response
+                return new List<Category>();
+            }
 
             var htmlDoc = new HtmlDocument();
             htmlDoc.LoadHtml(response);
@@ -141,7 +188,55 @@ namespace BookScraper
                 }
             }
 
-            return categories;
+            foreach (var (name, _) in categories)
+            {
+                //Check if the category already exists in the database
+                var exists = await context.Categories.AnyAsync(c => c.Name == name);
+
+                if (!exists)
+                {
+                    categoryList.Add(new Category { Name = name });
+                    Console.WriteLine($"Adding category '{name}' to database. \n");
+                }
+            }
+
+            return categoryList;
+        }
+
+        public async Task FixEncodedTitlesAsync(BookContext context)
+        {
+            var booksWithEncodedTitles = await context.Books.ToListAsync();
+
+            foreach (var book in booksWithEncodedTitles)
+            {
+                var decodedTitle = WebUtility.HtmlDecode(book.Title);
+                if (decodedTitle != book.Title)
+                {
+                    book.Title = decodedTitle;
+                }
+            }
+
+            await context.SaveChangesAsync();
+            Console.WriteLine("All encoded book titles have been fixed.");
+        }
+
+        private async Task<string?> GetHtmlWithRetry(string url, HttpClient httpClient, int maxRetries = 3)
+        {
+            for (int attempt = 1; attempt <= maxRetries; attempt++)
+            {
+                try
+                {
+                    return await httpClient.GetStringAsync(url);
+                }
+                catch (HttpRequestException ex)
+                {
+                    Console.WriteLine($"[Attempt {attempt}] Failed to fetch {url}: {ex.Message}");
+                    await Task.Delay(1000);
+                }
+            }
+
+            Console.WriteLine($"Failed to fetch {url} after {maxRetries} attempts.");
+            return null;
         }
     }
 }
