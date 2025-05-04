@@ -18,5 +18,6 @@ That includes info such as title, price, category...
 	Added some robustness to the HTML requests.
 	Added some console logs.
 	Added systems to save failed books URLs in a text file.
+3.	Started the backend development. Basic infrastructure setup with CRUD endpoints to access the original scraped data.
 	
 

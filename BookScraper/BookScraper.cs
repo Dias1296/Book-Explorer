@@ -11,6 +11,7 @@ using BookScraper.Models;
 using BookScraper.DatabaseContext;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
+using Microsoft.Extensions.Configuration;
 
 namespace BookScraper
 {
@@ -19,7 +20,7 @@ namespace BookScraper
         private const string baseUrl = "https://books.toscrape.com/catalogue/";
         private const string pageUrlPattern = "page-{0}.html";
 
-        public async Task<List<Book>> ScrapeBooksAsync(BookContext context)
+        public async Task<List<Book>> ScrapeBooksAsync(BookContext context, IConfiguration scraperSettings)
         {
             List<Book> books = new List<Book>();
             List<string> failedBooks = new List<string>();
@@ -151,11 +152,11 @@ namespace BookScraper
             return books;
         }
 
-        public async Task<List<Category>> ScrapeCategoriesAsync(BookContext context)
+        public async Task<List<Category>> ScrapeCategoriesAsync(BookContext context, IConfiguration scraperSettings)
         {
             var categoryList = new List<Category>();
             var categories = new List<(string, string)>();
-            var baseUrl = "https://books.toscrape.com/";
+            var baseUrl = scraperSettings["BaseUrl"];
 
             var httpClient = new HttpClient();
             string? response; 
