@@ -4,6 +4,8 @@ using BookLibraryAPI.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace BookLibraryAPI.Controllers
 {
@@ -20,23 +22,54 @@ namespace BookLibraryAPI.Controllers
 
         //GET request to get all books 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<BookDto>>> GetAllBooks()
+        public async Task<ActionResult<IEnumerable<BookDto>>> GetAllBooks([FromQuery] BookQueryParameters query)
         {
-            var books = await _context.Books
-                .OrderBy(b => b.Id)
-                .Select(b => new BookDto
-                {
-                    Id = b.Id,
-                    Title = b.Title,
-                    Price = b.Price,
-                    Rating = b.Rating,
-                    Availability = b.Availability,
-                    DetailPageUrl = b.DetailPageUrl,
-                    CategoryName = b.Category.Name
-                })
-                .ToListAsync();
+            var booksQuery = _context.Books
+                .Include(b => b.Category).AsQueryable();
 
-            return Ok(books);
+            //Apply filters
+            if (!string.IsNullOrEmpty(query.Title))
+                booksQuery = booksQuery.Where(b => b.Title.Contains(query.Title));
+
+            if (!string.IsNullOrEmpty(query.Category))
+                booksQuery = booksQuery.Where(b => b.Category.Name ==  query.Category);
+
+            if (!query.Rating.IsNullOrEmpty())
+            {
+                booksQuery = booksQuery.Where(b => b.Rating == query.Rating);
+            }
+
+            //Total count before pagination
+            var totalCount = await booksQuery.CountAsync();
+
+            //Apply ordering and pagination
+            booksQuery = booksQuery
+                .OrderBy(b => b.Id)
+                .Skip((query.Page - 1) * query.PageSize)
+                .Take(query.PageSize);
+
+            //Project to DTO
+            var books = await booksQuery.Select(b => new BookDto
+            {
+                Id = b.Id,
+                Title = b.Title,
+                Price = b.Price,
+                Rating = b.Rating,
+                Availability = b.Availability,
+                DetailPageUrl = b.DetailPageUrl,
+                CategoryName = b.Category.Name
+            }).ToListAsync();
+
+            var result = new PagedResult<BookDto>
+            {
+                Items = books,
+                TotalCount = totalCount,
+                Page = query.Page,
+                PageSize = query.PageSize,
+                HasNextPage = totalCount > query.Page * query.PageSize
+            };
+
+            return Ok(result);
         }
 
         //GET request to get books by id
@@ -102,21 +135,34 @@ namespace BookLibraryAPI.Controllers
 
         //Search books by category
         [HttpGet("search")]
-        public async Task<ActionResult<IEnumerable<BookDto>>> SearchBooks(string? category, bool? available)
+        public async Task<ActionResult<IEnumerable<BookDto>>> SearchBooks([FromQuery] BookQueryParameters parameters)
         {
             var query = _context.Books.AsQueryable();
 
-            if (!string.IsNullOrEmpty(category))
+            if (!string.IsNullOrEmpty(parameters.Category))
             {
-                query = query.Where(b => b.Category.Name == category);
+                query = query.Where(b => b.Category.Name == parameters.Category);
             }
 
-            if (available.HasValue)
+            if (parameters.Available.HasValue)
             {
-                query = query.Where(b => b.Availability.Contains((bool)available ? "In stock" : "Not in stock"));
+                query = query.Where(b => b.Availability.Contains((bool)parameters.Available ? "In stock" : "Not in stock"));
             }
 
-            var results = await query
+            query = parameters.SortBy switch
+            {
+                SortField.Price => parameters.Descending ? query.OrderByDescending(b => b.Price) : query.OrderBy(b => b.Price),
+                SortField.Title => parameters.Descending ? query.OrderByDescending(b => b.Title) : query.OrderBy(b => b.Title),
+                SortField.CategoryName => parameters.Descending ? query.OrderByDescending(b => b.Category.Name) : query.OrderBy(b => b.Category.Name),
+                _ => query.OrderBy(b => b.Id) //Default fallback
+            };
+
+            //Count before pagination
+            var totalCount = await query.CountAsync();
+
+            var books = await query
+                .Skip((parameters.Page - 1) * parameters.PageSize)
+                .Take(parameters.PageSize)
                 .Select(b => new BookDto
                 {
                     Id = b.Id,
@@ -129,7 +175,16 @@ namespace BookLibraryAPI.Controllers
                 })
                 .ToListAsync();
 
-            return Ok(results);
+            var result = new PagedResult<BookDto>
+            {
+                Items = books,
+                TotalCount = totalCount,
+                Page = parameters.Page,
+                PageSize = parameters.PageSize,
+                HasNextPage = totalCount > parameters.Page * parameters.PageSize
+            };
+
+            return Ok(result);
         }
 
         [HttpPut("{id}")]

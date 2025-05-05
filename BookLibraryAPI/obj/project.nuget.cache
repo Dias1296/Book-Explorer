@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2BfDIkKqMzw=",
+  "dgSpecHash": "RcMI545MqzA=",
   "success": true,
   "projectFilePath": "C:\\Users\\fabio\\Desktop\\Software\\Projects\\Book-Explorer\\BookLibraryAPI\\BookLibraryAPI.csproj",
   "expectedPackageFiles": [
@@ -88,7 +88,8 @@
     "C:\\Users\\fabio\\.nuget\\packages\\system.text.json\\9.0.4\\system.text.json.9.0.4.nupkg.sha512",
     "C:\\Users\\fabio\\.nuget\\packages\\system.threading.channels\\7.0.0\\system.threading.channels.7.0.0.nupkg.sha512",
     "C:\\Users\\fabio\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "C:\\Users\\fabio\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
+    "C:\\Users\\fabio\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
+    "C:\\Users\\fabio\\.nuget\\packages\\wordstonumbers\\1.1.0\\wordstonumbers.1.1.0.nupkg.sha512"
   ],
   "logs": []
 }

@@ -1688,6 +1688,19 @@
             "rid": "win"
           }
         }
+      },
+      "WordsToNumbers/1.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/WordsToNumbers.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/WordsToNumbers.dll": {
+            "related": ".xml"
+          }
+        }
       }
     }
   },
@@ -5147,6 +5160,19 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "WordsToNumbers/1.1.0": {
+      "sha512": "mLL7+89n/RfTKaOvT1qbiOppHrpH9QZxxgCbOpbSH+Fg6CTjAg6DGfgNVTmSeVhqj4sjrRn00G3EX4D2Gpc58g==",
+      "type": "package",
+      "path": "wordstonumbers/1.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/WordsToNumbers.dll",
+        "lib/netstandard2.0/WordsToNumbers.xml",
+        "wordstonumbers.1.1.0.nupkg.sha512",
+        "wordstonumbers.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -5154,7 +5180,8 @@
       "Microsoft.EntityFrameworkCore >= 9.0.4",
       "Microsoft.EntityFrameworkCore.SqlServer >= 9.0.4",
       "Microsoft.EntityFrameworkCore.Tools >= 9.0.4",
-      "Swashbuckle.AspNetCore >= 6.6.2"
+      "Swashbuckle.AspNetCore >= 6.6.2",
+      "WordsToNumbers >= 1.1.0"
     ]
   },
   "packageFolders": {
@@ -5225,6 +5252,10 @@
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.6.2, )"
+          },
+          "WordsToNumbers": {
+            "target": "Package",
+            "version": "[1.1.0, )"
           }
         },
         "imports": [

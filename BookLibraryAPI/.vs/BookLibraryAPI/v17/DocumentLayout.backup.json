@@ -7,8 +7,8 @@
       "RelativeMoniker": "D:0:0:{ABB5B70F-93A6-43B4-9935-0F4F3FB6BF65}|BookLibraryAPI.csproj|solutionrelative:controllers\\bookscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ABB5B70F-93A6-43B4-9935-0F4F3FB6BF65}|BookLibraryAPI.csproj|c:\\users\\fabio\\desktop\\software\\projects\\book-explorer\\booklibraryapi\\dtos\\createbookdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ABB5B70F-93A6-43B4-9935-0F4F3FB6BF65}|BookLibraryAPI.csproj|solutionrelative:dtos\\createbookdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ABB5B70F-93A6-43B4-9935-0F4F3FB6BF65}|BookLibraryAPI.csproj|c:\\users\\fabio\\desktop\\software\\projects\\book-explorer\\booklibraryapi\\dtos\\pagedresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ABB5B70F-93A6-43B4-9935-0F4F3FB6BF65}|BookLibraryAPI.csproj|solutionrelative:dtos\\pagedresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{ABB5B70F-93A6-43B4-9935-0F4F3FB6BF65}|BookLibraryAPI.csproj|c:\\users\\fabio\\desktop\\software\\projects\\book-explorer\\booklibraryapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -31,14 +31,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "CreateBookDto.cs",
-              "DocumentMoniker": "C:\\Users\\fabio\\Desktop\\Software\\Projects\\Book-Explorer\\BookLibraryAPI\\DTOs\\CreateBookDto.cs",
-              "RelativeDocumentMoniker": "DTOs\\CreateBookDto.cs",
-              "ToolTip": "C:\\Users\\fabio\\Desktop\\Software\\Projects\\Book-Explorer\\BookLibraryAPI\\DTOs\\CreateBookDto.cs",
-              "RelativeToolTip": "DTOs\\CreateBookDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "Title": "PagedResult.cs",
+              "DocumentMoniker": "C:\\Users\\fabio\\Desktop\\Software\\Projects\\Book-Explorer\\BookLibraryAPI\\DTOs\\PagedResult.cs",
+              "RelativeDocumentMoniker": "DTOs\\PagedResult.cs",
+              "ToolTip": "C:\\Users\\fabio\\Desktop\\Software\\Projects\\Book-Explorer\\BookLibraryAPI\\DTOs\\PagedResult.cs",
+              "RelativeToolTip": "DTOs\\PagedResult.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAgAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-04T21:01:16.161Z",
+              "WhenOpened": "2025-05-05T18:38:55.507Z",
               "EditorCaption": ""
             },
             {
@@ -49,7 +49,7 @@
               "RelativeDocumentMoniker": "Controllers\\BooksController.cs",
               "ToolTip": "C:\\Users\\fabio\\Desktop\\Software\\Projects\\Book-Explorer\\BookLibraryAPI\\Controllers\\BooksController.cs",
               "RelativeToolTip": "Controllers\\BooksController.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAQwK0AAAAfAAAAAAAAAA==",
+              "ViewState": "AgIAAK8AAAAAAAAAAAAiwLcAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-04T17:42:48.404Z",
               "EditorCaption": ""
@@ -64,7 +64,8 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAB2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-04T17:40:09.298Z"
+              "WhenOpened": "2025-05-04T17:40:09.298Z",
+              "EditorCaption": ""
             }
           ]
         }

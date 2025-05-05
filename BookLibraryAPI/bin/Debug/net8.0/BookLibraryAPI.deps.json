@@ -11,7 +11,8 @@
           "Microsoft.EntityFrameworkCore": "9.0.4",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.4",
           "Microsoft.EntityFrameworkCore.Tools": "9.0.4",
-          "Swashbuckle.AspNetCore": "6.6.2"
+          "Swashbuckle.AspNetCore": "6.6.2",
+          "WordsToNumbers": "1.1.0"
         },
         "runtime": {
           "BookLibraryAPI.dll": {}
@@ -1085,6 +1086,14 @@
             "fileVersion": "6.0.21.52210"
           }
         }
+      },
+      "WordsToNumbers/1.1.0": {
+        "runtime": {
+          "lib/netstandard2.0/WordsToNumbers.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
       }
     }
   },
@@ -1688,6 +1697,13 @@
       "sha512": "sha512-IXoJOXIqc39AIe+CIR7koBtRGMiCt/LPM3lI+PELtDIy9XdyeSrwXFdWV9dzJ2Awl0paLWUaknLxFQ5HpHZUog==",
       "path": "system.windows.extensions/6.0.0",
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
+    },
+    "WordsToNumbers/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mLL7+89n/RfTKaOvT1qbiOppHrpH9QZxxgCbOpbSH+Fg6CTjAg6DGfgNVTmSeVhqj4sjrRn00G3EX4D2Gpc58g==",
+      "path": "wordstonumbers/1.1.0",
+      "hashPath": "wordstonumbers.1.1.0.nupkg.sha512"
     }
   }
 }

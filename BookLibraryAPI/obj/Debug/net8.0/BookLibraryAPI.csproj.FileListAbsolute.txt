@@ -171,3 +171,4 @@ C:\Users\fabio\Desktop\Software\Projects\Book-Explorer\BookLibraryAPI\obj\Debug\
 C:\Users\fabio\Desktop\Software\Projects\Book-Explorer\BookLibraryAPI\obj\Debug\net8.0\BookLibraryAPI.pdb
 C:\Users\fabio\Desktop\Software\Projects\Book-Explorer\BookLibraryAPI\obj\Debug\net8.0\BookLibraryAPI.genruntimeconfig.cache
 C:\Users\fabio\Desktop\Software\Projects\Book-Explorer\BookLibraryAPI\obj\Debug\net8.0\ref\BookLibraryAPI.dll
+C:\Users\fabio\Desktop\Software\Projects\Book-Explorer\BookLibraryAPI\bin\Debug\net8.0\WordsToNumbers.dll

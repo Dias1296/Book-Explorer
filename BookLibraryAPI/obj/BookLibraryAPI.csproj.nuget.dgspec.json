@@ -68,6 +68,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.6.2, )"
+            },
+            "WordsToNumbers": {
+              "target": "Package",
+              "version": "[1.1.0, )"
             }
           },
           "imports": [
